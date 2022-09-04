@@ -8,11 +8,12 @@ namespace demoproject.pages
 {
     public class loginpage
     {
-        public void loginsteps(IWebDriver driver)
+        public static void loginsteps(IWebDriver driver)
         {
             driver.Manage().Window.Maximize();
 
             driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
+
             IWebElement usernameTextBox = driver.FindElement(By.Id("UserName"));
             usernameTextBox.SendKeys("hari");
             IWebElement passwordTextBox = driver.FindElement(By.Id("Password"));

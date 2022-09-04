@@ -1,11 +1,18 @@
 ﻿
+using NuGet.ContentModel;
+using NuGet.Frameworks;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace demoproject.pages
 {
     public class tmpage
     {
-        public void createTm(IWebDriver driver)
+        internal static tmpage tmPageObj;
+
+        public object NewCode { get; private set; }
+
+        public static void createTm(IWebDriver driver)
         {
             IWebElement goToCreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
             goToCreateNewButton.Click();
@@ -22,23 +29,27 @@ namespace demoproject.pages
             IWebElement goToSaveButton = driver.FindElement(By.Id("SaveButton"));
             goToSaveButton.Click();
             Thread.Sleep(1000);
+            
 
             IWebElement goToLastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLastPage.Click();
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-            if (newCode.Text == "ABC")
-            {
-                Console.WriteLine("new record created");
-            }
-            else
-            {
-                Console.WriteLine("new record unsuccessfull");
-            }
+
+            Assert.That(newCode.Text == "ABC", "actual code and expected code do not match");
+
+            //if (newCode.Text == "ABC")
+            //{
+            //    Assert.Pass("new record created");
+            //}
+            //else
+            //{
+            //   Assert.Fail("new record unsuccessfull");
+            //}
 
         }
 
 
-        public void editTM(IWebDriver driver)
+        public static void EditTM(IWebDriver driver)
         {
             IWebElement goToEditButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             goToEditButton.Click();
@@ -80,15 +91,17 @@ namespace demoproject.pages
             GOTODeleteButton.Click();
             driver.SwitchTo().Alert().Accept();
 
-            if (newCode.Text != "ABCdx")
-            {
-                Console.WriteLine("delete successfull");
+             Assert.That(NewCode != "ABCdx", "actual code and expected code match");
 
-            }
-            else
-            {
-                Console.WriteLine("delete unsuccessfull");
-            }
+            //if (newCode.Text != "ABCdx")
+            //{
+            //    Console.WriteLine("delete successfull");
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("delete unsuccessfull");
+            //}
 
         }
 
