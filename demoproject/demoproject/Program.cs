@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Diagnostics;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 IWebDriver driver = new ChromeDriver();
@@ -22,4 +23,35 @@ else
 }
 
 
+
+//create new record
+IWebElement goToAdministrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+goToAdministrationTab.Click();
+IWebElement goToTMTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+goToTMTab.Click();
+IWebElement goToCreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
+goToCreateNewButton.Click();
+IWebElement goToTypeCodeDropDown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[1]"));
+goToTypeCodeDropDown.Click();
+IWebElement goToCodeButton = driver.FindElement(By.Id("Code"));
+goToCodeButton.SendKeys("ABC");
+IWebElement goToDescriptionButton = driver.FindElement(By.Id("Description"));
+goToDescriptionButton.SendKeys("ABC");
+IWebElement PriceTag = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+PriceTag.Click();
+IWebElement goToPricePerUnit = driver.FindElement(By.Id("Price"));
+goToPricePerUnit.SendKeys("22");
+IWebElement goToSaveButton = driver.FindElement(By.Id("SaveButton"));
+goToSaveButton.Click();
+IWebElement goToLastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+goToLastPage.Click();
+IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+if(newCode.Text == "ABC")
+{
+    Console.WriteLine("new record created");
+}
+else
+{
+    Console.WriteLine("new record unsuccessfull");
+}
 
