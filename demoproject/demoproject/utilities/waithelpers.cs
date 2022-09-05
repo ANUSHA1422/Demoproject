@@ -10,7 +10,7 @@ namespace demoproject.utilities
 {
     public class waithelpers
     {
-        public static void WaitToBeClickable(IWebDriver driver,string locator,string locatorvalue,int seconds)
+        public static void WaitToBeClickable(IWebDriver driver, string locator, string locatorvalue, int seconds)
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using demoproject.pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace demoproject.utilities
 {
@@ -13,7 +14,16 @@ namespace demoproject.utilities
     {
         public static IWebDriver driver;
 
-        
+        [SetUp]
+        public void LoginActions()
+        {
+            driver = new ChromeDriver();
 
+
+            loginpage loginPageObj = new loginpage();
+            loginpage.loginsteps(driver);
+
+
+        }
     }
 }

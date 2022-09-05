@@ -19,10 +19,42 @@ namespace demoproject.pages
 
         }
 
-        internal void goToTmPage(IWebDriver driver)
+
+        public void goToEmployeePage(IWebDriver driver)
+        {
+            IWebElement goToAdministartionTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+            goToAdministartionTab.Click();
+
+            waithelpers.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a", 7);
+
+            IWebElement goToEmployeePage = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
+            goToEmployeePage.Click();
+        }
+
+        internal void goToTMTab(IWebDriver driver)
         {
             throw new NotImplementedException();
         }
+
+        //internal void goToTMTab(IWebDriver driver)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //internal void goToTMTab(IWebDriver driver)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //internal void goToTMTab(IWebDriver driver)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        ////internal void goToTmPage(IWebDriver driver)
+        ////{
+        ////    throw new NotImplementedException();
+        ////}
 
         //internal void goToTmPage(IWebDriver driver)
         //{

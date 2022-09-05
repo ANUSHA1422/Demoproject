@@ -15,46 +15,58 @@ using demoproject.utilities;
 namespace demoproject.tests
 {
     [TestFixture]
+    [Parallelizable]
+   
     public class Tm_tests : commondriver
     {
-        
+        homepage homePageObj = new homepage();
 
-        [SetUp]
-        public void LoginActions()
+        TMpage tmPageObj = new TMpage();
+
+        //[SetUp]
+        //public void LoginActions()
+        //{
+        //    driver = new ChromeDriver();
+
+
+        //    loginpage loginPageObj = new loginpage();
+        //    loginpage.loginsteps(driver);
+
+
+        //homepage homePageObj = new homepage();
+        //homePageObj.goToTMTab(driver);
+
+
+
+        [Test,Order (1),Description("check if user is able to create Tm record")]
+        public void CreateTmTesr(IWebDriver driver)
         {
-            driver = new ChromeDriver();
+        /*homepage homePageObj = new homepage()*/;
+        homePageObj.goToTMTab(driver);
 
-
-            loginpage loginPageObj = new loginpage();
-            loginpage.loginsteps(driver);
-
-
-            homepage homePageObj = new homepage();
-            homePageObj.goToTmPage(driver);
+            //TMpage tmPageObj = new TMpage();
+            TMpage.createTm(driver);
 
         }
-        [Test]
-        public void CreateTmTesr()
-        {
-            tmpage tmPageObj = new tmpage();
-            tmpage.createTm(driver);
 
-        }
-
-        [Test]
-        public void DeleteTest()
-        {
-            tmpage tmPageObj = new();
-            tmPageObj.deleteTM(driver);
-
-
-        }
-        [Test]
+        [Test,Order(2),Description("check if user is able to edit Tm record")]
         public void EditTest()
         {
-            tmpage tmPageObj = new tmpage();
-            tmpage.EditTM(driver);
+           /* homepage homePageObj = new homepage()*/;
+            homePageObj.goToTMTab(driver);
 
+            //TMpage tmPageObj = new TMpage();
+            TMpage.EditTM(driver);
+
+        }
+        [Test,Order(3),Description("check if user is able to delete Tm record ")]
+        public void DeleteTest()
+        {
+            /*homepage homePageObj = new homepage()*/;
+            homePageObj.goToTMTab(driver);
+
+            //TMpage tmPageObj = new();
+            tmPageObj.deleteTM(driver);
         }
 
         [TearDown]

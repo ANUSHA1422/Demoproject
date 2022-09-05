@@ -6,11 +6,9 @@ using OpenQA.Selenium;
 
 namespace demoproject.pages
 {
-    public class tmpage
+    public class TMpage
     {
-        internal static tmpage tmPageObj;
-
-        public object NewCode { get; private set; }
+       
 
         public static void createTm(IWebDriver driver)
         {
@@ -34,8 +32,12 @@ namespace demoproject.pages
             IWebElement goToLastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLastPage.Click();
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
 
             Assert.That(newCode.Text == "ABC", "actual code and expected code do not match");
+            Assert.That(newDescription.Text == "ABC", "actual description and expected description do not match");
+            Assert.That(newPrice.Text == "$22.00", "actual price and expected price do not match");
 
             //if (newCode.Text == "ABC")
             //{
@@ -70,20 +72,25 @@ namespace demoproject.pages
             IWebElement goToLPButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLPButton.Click();
             IWebElement newEditCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+
+            Assert.That(newEditCode.Text == "ABCdx", "actual code and expected code do not match");
             if (newEditCode.Text == "ABCdx")
             {
                 Console.WriteLine("edit successfull");
             }
             else
             {
-                Console.WriteLine("edit unsuccessfull");
+                //Console.WriteLine("edit unsuccessfull");
+                Assert.Fail("RECORD NOT EDITED");
             }
-
+           
         }
 
+        
+        
+           
 
-
-        public void deleteTM(IWebDriver driver)
+        public void deleteTM(IWebDriver driver )
         {
             IWebElement goTolastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             goTolastPage.Click();
@@ -91,7 +98,7 @@ namespace demoproject.pages
             GOTODeleteButton.Click();
             driver.SwitchTo().Alert().Accept();
 
-             Assert.That(NewCode != "ABCdx", "actual code and expected code match");
+            //Assert.That(LastCode.Text != "ABCdx", "actual code deleted");
 
             //if (newCode.Text != "ABCdx")
             //{
