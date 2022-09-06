@@ -6,9 +6,9 @@ using OpenQA.Selenium;
 
 namespace demoproject.pages
 {
-    public class loginpage
+    public class LoginPage
     {
-        public static void loginsteps(IWebDriver driver)
+        public void loginsteps(IWebDriver driver)
         {
             driver.Manage().Window.Maximize();
 

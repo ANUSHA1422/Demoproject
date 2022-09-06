@@ -12,7 +12,7 @@ namespace demoproject.utilities
 {
     public class commondriver
     {
-        public static IWebDriver driver;
+        public IWebDriver driver;
 
         [SetUp]
         public void LoginActions()
@@ -20,8 +20,8 @@ namespace demoproject.utilities
             driver = new ChromeDriver();
 
 
-            loginpage loginPageObj = new loginpage();
-            loginpage.loginsteps(driver);
+            LoginPage loginPageObj = new LoginPage();
+            LoginPage.loginsteps(driver);
 
 
         }

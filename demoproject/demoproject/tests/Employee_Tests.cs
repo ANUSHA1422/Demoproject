@@ -15,20 +15,20 @@ namespace demoproject.tests
    
     public class Employee_Tests : commondriver
     {
-        [SetUp]
-        public void LoginActions()
-        {
-            driver = new ChromeDriver();
+        //[SetUp]
+        //public void LoginActions()
+        //{
+        //    driver = new ChromeDriver();
 
 
-            loginpage loginPageObj = new loginpage();
-            loginpage.loginsteps(driver);
+        //    loginpage loginPageObj = new loginpage();
+        //    loginpage.loginsteps(driver);
 
 
-                homepage homePageObj = new homepage();
-            homePageObj.goToEmployeePage(driver);
+        //        homepage homePageObj = new homepage();
+        //    homePageObj.goToEmployeePage(driver);
 
-        }
+        //}
             
 
            
@@ -37,21 +37,21 @@ namespace demoproject.tests
         [Test]
         public void CreateEmployee()
         {
-            Employeepage employeePageObj = new Employeepage();
+            EmployeePage employeePageObj = new EmployeePage();
             employeePageObj.CreateEmployee(driver);
         }
 
         [Test]
         public void EditEmployee()
         {
-            Employeepage employeePageObj = new Employeepage();
+            EmployeePage employeePageObj = new EmployeePage();
             employeePageObj.EditEmployee(driver);
         }
 
         [Test]
         public void DeleteEmployee()
         {
-            Employeepage employeePageObj = new Employeepage();
+            EmployeePage employeePageObj = new EmployeePage();
             employeePageObj.DeleteEmployee(driver);
         }
 

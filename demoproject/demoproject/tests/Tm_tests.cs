@@ -19,9 +19,9 @@ namespace demoproject.tests
    
     public class Tm_tests : commondriver
     {
-        homepage homePageObj = new homepage();
+        HomePage homePageObj = new HomePage();
 
-        TMpage tmPageObj = new TMpage();
+        TMPage tmPageObj = new TMPage();
 
         //[SetUp]
         //public void LoginActions()
@@ -42,10 +42,10 @@ namespace demoproject.tests
         public void CreateTmTesr(IWebDriver driver)
         {
         /*homepage homePageObj = new homepage()*/;
-        homePageObj.goToTMTab(driver);
+              homePageObj.goToTMTab(driver);
 
             //TMpage tmPageObj = new TMpage();
-            TMpage.createTm(driver);
+            TMPage.createTm(driver);
 
         }
 
@@ -56,7 +56,7 @@ namespace demoproject.tests
             homePageObj.goToTMTab(driver);
 
             //TMpage tmPageObj = new TMpage();
-            TMpage.EditTM(driver);
+            TMPage.EditTM(driver);
 
         }
         [Test,Order(3),Description("check if user is able to delete Tm record ")]
@@ -66,7 +66,7 @@ namespace demoproject.tests
             homePageObj.goToTMTab(driver);
 
             //TMpage tmPageObj = new();
-            tmPageObj.deleteTM(driver);
+            TMPage.deleteTM(driver);
         }
 
         [TearDown]

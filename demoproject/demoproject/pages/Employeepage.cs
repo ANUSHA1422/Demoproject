@@ -10,7 +10,7 @@ using OpenQA.Selenium;
 
 namespace demoproject.pages
 {
-    public class Employeepage
+    public class EmployeePage
     {
         public void CreateEmployee(IWebDriver driver)
         {

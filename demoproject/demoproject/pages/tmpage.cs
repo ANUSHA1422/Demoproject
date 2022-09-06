@@ -6,11 +6,11 @@ using OpenQA.Selenium;
 
 namespace demoproject.pages
 {
-    public class TMpage
+    public class TMPage
     {
        
 
-        public static void createTm(IWebDriver driver)
+        public  void createTm(IWebDriver driver)
         {
             IWebElement goToCreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
             goToCreateNewButton.Click();
@@ -51,7 +51,7 @@ namespace demoproject.pages
         }
 
 
-        public static void EditTM(IWebDriver driver)
+        public  void EditTM(IWebDriver driver)
         {
             IWebElement goToEditButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             goToEditButton.Click();
@@ -112,5 +112,9 @@ namespace demoproject.pages
 
         }
 
+        //internal static void CreateTM(IWebDriver driver)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
