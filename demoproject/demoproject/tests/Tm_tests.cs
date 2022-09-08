@@ -17,7 +17,7 @@ namespace demoproject.tests
     [TestFixture]
     [Parallelizable]
    
-    public class Tm_tests : commondriver
+    public class Tm_tests : CommonDriver
     {
         HomePage homePageObj = new HomePage();
 
@@ -39,13 +39,13 @@ namespace demoproject.tests
 
 
         [Test,Order (1),Description("check if user is able to create Tm record")]
-        public void CreateTmTesr(IWebDriver driver)
+        public void CreateTmTest(IWebDriver driver)
         {
         /*homepage homePageObj = new homepage()*/;
-              homePageObj.goToTMTab(driver);
+              homePageObj.GoToTMpage(driver);
 
             //TMpage tmPageObj = new TMpage();
-            TMPage.createTm(driver);
+            tmPageObj.CreateTm(driver);
 
         }
 
@@ -53,27 +53,27 @@ namespace demoproject.tests
         public void EditTest()
         {
            /* homepage homePageObj = new homepage()*/;
-            homePageObj.goToTMTab(driver);
+            homePageObj.GoToTMpage(driver);
 
             //TMpage tmPageObj = new TMpage();
-            TMPage.EditTM(driver);
+            // tmPageObj.EditTM(driver);
 
         }
         [Test,Order(3),Description("check if user is able to delete Tm record ")]
         public void DeleteTest()
         {
-            /*homepage homePageObj = new homepage()*/;
-            homePageObj.goToTMTab(driver);
+            HomePage homePageObj = new HomePage();
+            homePageObj.GoToTMpage(driver);
 
-            //TMpage tmPageObj = new();
-            TMPage.deleteTM(driver);
+            TMPage tmPageObj = new TMPage();
+            tmPageObj.DeleteTM(driver);
         }
 
-        [TearDown]
-        public void CloseTestRun()
-        {
-            driver.Quit();
-        }
+        //[TearDown]
+        //public void CloseTestRun()
+        //{
+        //    driver.Quit();
+        //}
 
        
 

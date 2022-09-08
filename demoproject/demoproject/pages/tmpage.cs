@@ -10,7 +10,7 @@ namespace demoproject.pages
     {
        
 
-        public  void createTm(IWebDriver driver)
+        public  void CreateTm(IWebDriver driver)
         {
             IWebElement goToCreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
             goToCreateNewButton.Click();
@@ -31,13 +31,13 @@ namespace demoproject.pages
 
             IWebElement goToLastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLastPage.Click();
-            IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
-            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
+            //IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+           // IWebElement newDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+           // IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
 
-            Assert.That(newCode.Text == "ABC", "actual code and expected code do not match");
-            Assert.That(newDescription.Text == "ABC", "actual description and expected description do not match");
-            Assert.That(newPrice.Text == "$22.00", "actual price and expected price do not match");
+            //Assert.That(newCode.Text == "ABC", "actual code and expected code do not match");
+            //Assert.That(newDescription.Text == "ABC", "actual description and expected description do not match");
+            //Assert.That(newPrice.Text == "$22.00", "actual price and expected price do not match");
 
             //if (newCode.Text == "ABC")
             //{
@@ -49,9 +49,27 @@ namespace demoproject.pages
             //}
 
         }
+        public string GetCode(IWebDriver driver)
+        {
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            return newCode.Text;
+
+        }
+        public string GetDescription(IWebDriver driver)
+        {
+            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return newDescription.Text;
+        }
+
+        public string GetPrice(IWebDriver driver)
+        {
+            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
+            return newPrice.Text;
+
+        }
 
 
-        public  void EditTM(IWebDriver driver)
+        public void EditTM(IWebDriver driver, string description)
         {
             IWebElement goToEditButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             goToEditButton.Click();
@@ -90,7 +108,7 @@ namespace demoproject.pages
         
            
 
-        public void deleteTM(IWebDriver driver )
+        public void DeleteTM(IWebDriver driver )
         {
             IWebElement goTolastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             goTolastPage.Click();

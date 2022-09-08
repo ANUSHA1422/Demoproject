@@ -10,20 +10,25 @@ using OpenQA.Selenium.Chrome;
 
 namespace demoproject.utilities
 {
-    public class commondriver
+    public class CommonDriver
     {
         public IWebDriver driver;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void LoginActions()
         {
             driver = new ChromeDriver();
 
 
             LoginPage loginPageObj = new LoginPage();
-            LoginPage.loginsteps(driver);
+            loginPageObj.loginsteps(driver);
 
 
+        }
+        [OneTimeTearDown]
+        public void CloseRunTest()
+        {
+            driver.Quit();
         }
     }
 }

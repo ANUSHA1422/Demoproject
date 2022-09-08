@@ -12,55 +12,40 @@ namespace demoproject.tests
 {
     [TestFixture]
     [Parallelizable]
-   
-    public class Employee_Tests : commondriver
+
+    
+
+    public class Employee_Tests : CommonDriver
     {
-        //[SetUp]
-        //public void LoginActions()
-        //{
-        //    driver = new ChromeDriver();
+        
 
 
-        //    loginpage loginPageObj = new loginpage();
-        //    loginpage.loginsteps(driver);
-
-
-        //        homepage homePageObj = new homepage();
-        //    homePageObj.goToEmployeePage(driver);
-
-        //}
-            
-
-           
-
+        HomePage homePageObj = new HomePage();
+        EmployeePage employeePageObj = new EmployeePage();
 
         [Test]
         public void CreateEmployee()
         {
-            EmployeePage employeePageObj = new EmployeePage();
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.CreateEmployee(driver);
         }
 
         [Test]
         public void EditEmployee()
         {
-            EmployeePage employeePageObj = new EmployeePage();
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.EditEmployee(driver);
         }
 
         [Test]
         public void DeleteEmployee()
         {
-            EmployeePage employeePageObj = new EmployeePage();
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.DeleteEmployee(driver);
         }
 
 
-        [TearDown]
-        public void CloseRunTest()
-        {
-            driver.Quit();
-        }
+       
 
     }
 
