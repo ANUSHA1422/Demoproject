@@ -136,10 +136,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I navigate to time and material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
- testRunner.And(string.Format("I upadte \'{0}\' on an existing time and materail record", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I upadte \'{0}\',\'<Code>\' and \'<Price>\' on an existing time and materail record", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
- testRunner.Then(string.Format("The record should have the updated \'{0}\'", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The record should have the updated \'{0}\',\'<Code>\' and \'<Price>\'", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

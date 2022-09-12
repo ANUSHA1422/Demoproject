@@ -12,8 +12,8 @@ Scenario: Create time and material record with valid credentials
 Scenario Outline: Edit time and material record with valid credentials
 	Given I logged into turnup portal successfully
 	When I navigate to time and material page
-	And  I upadte '<Description>' on an existing time and materail record
-	Then The record should have the updated '<Description>'
+	And  I upadte '<Description>','<Code>' and '<Price>' on an existing time and materail record
+	Then The record should have the updated '<Description>','<Code>' and '<Price>'
 
 Examples: 
 | Description |

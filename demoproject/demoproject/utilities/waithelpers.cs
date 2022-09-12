@@ -16,7 +16,7 @@ namespace demoproject.utilities
 
             if (locator == "XPath")
             {
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("locatorvalue")));
+                _ = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("locatorvalue")));
             }
 
             if (locator == "Id")
@@ -33,16 +33,11 @@ namespace demoproject.utilities
              
 
         }
-        
-        
-            
 
-
-            
-
-          
-
-
+        internal static void WaitToBeVisible(IWebDriver driver, string v1, string v2, int v3)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
          

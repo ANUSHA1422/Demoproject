@@ -8,14 +8,14 @@ namespace demoproject.pages
     {
         public void GoToTMpage(IWebDriver driver)
         {
-            IWebElement goToAdministrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
-            goToAdministrationTab.Click();
+            IWebElement goToAdministrationPage = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+            goToAdministrationPage.Click();
 
             waithelpers.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 9);
 
 
-            IWebElement goToTMTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
-            goToTMTab.Click();
+            IWebElement goToTMPage = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+            goToTMPage.Click();
             Thread.Sleep(2000);
 
         }
@@ -87,5 +87,21 @@ namespace demoproject.pages
         //}
 
     }
+    //public void GoToTMPage(IWebDriver driver)
+    //{
+    //    // Navigate to Time & Materials page
+    //    IWebElement administrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+    //    administrationTab.Click();
+    //    waithelpers.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 3);
+    //    IWebElement tmOption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+    //    tmOption.Click();
+    //}
+
+    //public void GoToEmployeePage(IWebDriver driver)
+    //{
+    //    // Navigate to employee page
+    //}
 }
+
+
 
