@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using demoproject.pages;
 using demoproject.Pages;
 using demoproject.utilities;
@@ -10,14 +11,14 @@ namespace demoproject.StepDefinitions
 {
     [Binding]
     public class TMfeatureStepDefinitions : CommonDriver
-
     {
         LoginPage loginPageObj = new LoginPage();
         HomePage homePageObj = new HomePage();
         TMPage tmPageObj = new TMPage();
 
-        [Given(@"I logged into turn up portal successfully")]
-        public void GivenILoggedIntoTurnUpPortalSuccessfully()
+
+        [Given(@"I logged into turnup portal successfully")]
+        public void GivenILoggedIntoTurnupPortalSuccessfully()
         {
             driver = new ChromeDriver();
             loginPageObj.loginsteps(driver);
@@ -29,14 +30,14 @@ namespace demoproject.StepDefinitions
             homePageObj.GoToTMpage(driver);
         }
 
-        [When(@"I create a new time and material record")]
-        public void WhenICreateANewTimeAndMaterialRecord()
+        [When(@"I created new time and material record")]
+        public void WhenICreatedNewTimeAndMaterialRecord()
         {
             tmPageObj.CreateTM(driver);
         }
 
-        [Then(@"The record should be create successfully")]
-        public void ThenTheRecordShouldBeCreateSuccessfully()
+        [Then(@"The record should be created successfully")]
+        public void ThenTheRecordShouldBeCreatedSuccessfully()
         {
             string newCode = tmPageObj.GetCode(driver);
             string newDescription = tmPageObj.GetDescription(driver);
@@ -47,14 +48,13 @@ namespace demoproject.StepDefinitions
             Assert.That(newPrice == "$12.00", "Actual price and expected price do not match");
         }
 
-
-        [When(@"I update '([^']*)', '([^']*)' and '([^']*)' on an existing time and material record")]
-        public void WhenIUpdateAndOnAnExistingTimeAndMaterialRecord(string description, string code, string price)
+        [When(@"I upadte '([^']*)','([^']*)' and '([^']*)' on an existing time and materail record")]
+        public void WhenIUpadteAndOnAnExistingTimeAndMaterailRecord(string description, string code, string price)
         {
             tmPageObj.EditTM(driver, description, code, price);
         }
 
-        [Then(@"The record should have the updated '([^']*)', '([^']*)' and '([^']*)'")]
+        [Then(@"The record should have the updated '([^']*)','([^']*)' and '([^']*)'")]
         public void ThenTheRecordShouldHaveTheUpdatedAnd(string description, string code, string price)
         {
             string editedDescription = tmPageObj.GetEditedDescription(driver);
@@ -66,8 +66,5 @@ namespace demoproject.StepDefinitions
             Assert.That(editedCode == code, "Actual Code and expected code do not match.");
             Assert.That(editedPrice == price, "Actual Price and expected price do not match.");
         }
-
     }
-
-    
 }

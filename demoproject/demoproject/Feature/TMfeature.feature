@@ -15,8 +15,8 @@ Scenario Outline: Edit time and material record with valid credentials
 	And  I upadte '<Description>','<Code>' and '<Price>' on an existing time and materail record
 	Then The record should have the updated '<Description>','<Code>' and '<Price>'
 
-Examples: 
-| Description |
-|  Time       |
-|  Material   |
-|  abc        |
+Examples:
+| Description | Code | Price |
+| Time        | abc  | 22    |
+| Material    | dx   | 14    |
+| Price       | anu  | 143   |

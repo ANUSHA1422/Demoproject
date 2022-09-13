@@ -11,7 +11,7 @@ namespace demoproject.pages
             IWebElement goToAdministrationPage = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
             goToAdministrationPage.Click();
 
-            waithelpers.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 9);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 3);
 
 
             IWebElement goToTMPage = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));

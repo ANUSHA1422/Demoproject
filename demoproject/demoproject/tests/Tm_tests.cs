@@ -46,6 +46,7 @@ namespace demoproject.tests
             homePageObj.GoToTMpage(driver);
 
             // Delete TM
+            TMPage tmPageObj = new TMPage();
             tmPageObj.DeleteTM(driver);
         }
     }
