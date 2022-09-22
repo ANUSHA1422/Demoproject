@@ -17,6 +17,6 @@ Scenario Outline: Edit time and material record with valid credentials
 
 Examples:
 | Description | Code | Price |
-| Time        | abc  | 22    |
+| Time        | anu  | 227    |
 | Material    | dx   | 14    |
-| Price       | anu  | 143   |
+| Price       | abc  | 143   |

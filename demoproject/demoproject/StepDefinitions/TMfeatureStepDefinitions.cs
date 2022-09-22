@@ -43,9 +43,9 @@ namespace demoproject.StepDefinitions
             string newDescription = tmPageObj.GetDescription(driver);
             string newPrice = tmPageObj.GetPrice(driver);
 
-            Assert.That(newCode == "August2022", "Actual code and expected code do not match");
-            Assert.That(newDescription == "August2022", "Actual description and expected description do not match");
-            Assert.That(newPrice == "$12.00", "Actual price and expected price do not match");
+            Assert.That(newCode == "abc", "Actual code and expected code do not match");
+            Assert.That(newDescription == "abc", "Actual description and expected description do not match");
+            Assert.That(newPrice == "$22.00", "Actual price and expected price do not match");
         }
 
         [When(@"I upadte '([^']*)','([^']*)' and '([^']*)' on an existing time and materail record")]
